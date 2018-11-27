@@ -1,0 +1,118 @@
+/*Basket content -------------------------------------*/
+#basket {
+	margin-top: 61px;
+	margin-bottom: 140px;	
+}
+.basket-content-outer{
+	width: 100%;
+	overflow: auto;	
+}
+.basket-content{
+	width: 100%;
+	min-width: 700px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	text-align: center;
+}
+.basket-content td{
+	border: 1px solid #F5F5F5;
+}
+.basket-content-th{
+	border-bottom: 1px solid #E8E8EE;
+}
+.basket-content-th>th>h4{
+	text-align: center;
+}
+.basket-content li{
+	text-align: left;
+}
+/*Goods*/
+.basket-content-goods{
+	width: 300px !important;
+	overflow: auto;
+	margin-top: 10px;
+	padding-top: 10px;
+}
+.basket-content-goods>h4{
+	color: #5A5A92;
+}
+.basket-content-goods>img{
+	width: 100px;
+	height: auto;
+	float: left;
+}
+.basket-content-goods>div{
+	width: calc(100% - 100px);
+	min-height: 50px;
+	float: right;
+}
+.basket-content-goods-button{
+	float: right;
+	font-style: italic;
+	text-decoration: none;
+}
+.basket-content-goods-button:hover, .basket-content-goods-button:active{
+	text-decoration: none;
+}
+/*Common*/
+.basket-content-goods,.basket-content-pricePerUnit, .basket-content-count, .basket-content-total{
+	width: 150px;
+	vertical-align: top;
+	padding: 10px;
+}
+/*Count*/
+.basket-content-count>input{
+	width: 50px;
+}
+/* Remove */
+.basket-content-remove{
+	width: 50px;
+	text-align: center;
+	cursor: pointer;
+}
+.basket-content-remove:hover{
+	background-color: #E8E8EE;
+}
+/*Total*/
+.basket-total{
+	float: right;
+	margin-bottom: 50px;
+	font-size: 175%;
+}
+/*Buttons*/
+.basket-footer-buttons{
+	clear: both;
+}
+#basket .buttonFill{
+	/*position: relative;*/
+	float: right;
+	/*top: -10px;*/
+}
+#basket .basketImg-outer{
+	position: absolute;
+	right: 0px;
+	top: 2px;
+}
+
+/*Basket full showing*/
+.basketFull{
+	position: absolute;
+	background-color: #FFFFFF;
+	border-radius: 50%;
+	width: 20px;
+	height: 20px;
+	left: 17px;
+	top: 2px;
+	text-align: center;
+	display: none;
+}
+
+/*Responsible ------------------------------------*/
+@media only screen and (max-width: 480px){
+	.basket-footer-buttons>a{
+		display: block;
+		width: 100%;
+		margin-top: 50px;
+		text-align: center;
+	}
+}

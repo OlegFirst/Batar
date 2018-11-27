@@ -1,0 +1,116 @@
+#mainPage .nav{
+	border: 2px solid white;
+}
+.nav-line{
+	border-bottom: 2px solid;
+	width: 80%;
+}
+#mainPage .nav:hover{
+	border-color: #38630B;
+}
+#mainPage .nav:hover>.nav-line{
+	border-color: #38630B;
+}
+
+/* Navigation ------------------------- */
+.mainPage-nav-outer{
+	display: block;
+	max-width: 80%;
+	margin: 0 auto;
+}
+.mainPage-nav{
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	-webkit-flex-direction: row;
+	justify-content: space-between;
+	-webkit-justify-content: space-between;
+	align-items: center;
+	-webkit-align-items: center;
+	flex-wrap: wrap;
+	-webkit-flex-wrap: wrap;
+	max-width: 980px;
+	margin: 0 auto;
+}
+.mainPage-nav-div{
+	position: relative;
+	margin-top: 20px;
+	width: 29%;
+	max-width: 250px;
+	box-shadow: 0px 5px 20px 2px rgba(0,0,0,0.7);
+	cursor: pointer;
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+}
+.mainPage-nav-image{
+	width: 100%;
+	height: auto;
+}
+.mainPage-nav-title{
+	position: absolute;
+	color: #BFBFBF;
+	display: block;
+	margin: 0;
+	width: 100%;
+	height: 39%;
+	left: 0px;
+	top: 30%;
+	/*transform: translate(0,-30%);*/
+	text-align: center;
+	font-size: 170%;
+}
+.mainPage-nav-div:hover{
+	-ms-transform: scale(1.2, 1.2);
+	transform: scale(1.2, 1.2);
+	-webkit-transform: scale(1.2, 1.2);
+}
+/* Close button */
+#close{
+	/*position: absolute;*/
+	/*color: #FFFFFF;*/
+	right: 10px !important;
+	top: auto !important;
+	bottom: -35px !important;
+	font-size: 150%;
+	/*cursor: pointer;*/
+}
+.mainPage-nav-close:hover{
+	color: #38630B;
+}
+
+
+/* Responsive */
+@media only screen and (max-width:991.9px){
+	#mainPage .nav{
+		display: flex;
+		display: -webkit-flex;
+	}
+	/*Navigation*/
+	.mainPage-nav-outer{
+		display: none;
+	}
+	.mainPage-nav{
+		position: absolute;
+		background-color: rgba(22,65,137,0.8);
+		box-shadow: 0px 5px 20px 2px rgba(0,0,0,0.7);
+		position: fixed;
+		border-radius: 5px 0 0 5px;
+		width: 320px !important;
+		height: 330px;
+		right: 0px;
+		top: 10px;
+	}
+	.mainPage-nav-div{
+		width: 40%;
+		margin: 20px 5%;
+	}
+	.mainPage-nav-title{
+		font-size: 100%;
+	}
+}
+
+@media only screen and (min-width:1400px){
+	.mainPage-nav-outer{
+		margin-top: 100px;
+	}
+}

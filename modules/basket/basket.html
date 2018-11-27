@@ -1,0 +1,90 @@
+<section id="basket" ng-controller="basketController">
+
+	<div class="basket-outer screenWidth">
+		<h2 class="pageTitle">Кошик товарів</h2>
+		
+		<div class="screenWidth container well text-center" ng-if="basket.array.isEmpty()" style="margin: 50px auto;">
+			<h3>Кошик товарів порожній</h3>
+		</div>
+		
+		<!-- Content -->
+		<div class="basket-content-outer" ng-if="!basket.array.isEmpty()">
+			<table class="basket-content">
+				<tr class="basket-content-th">
+					<th><h4>Назва товару</h4></th>
+					<th><h4>Ціна за одиницю товару</h4></th>
+					<th><h4>Кількість</h4></th>
+					<th><h4>Разом</h4></th>
+				</tr>
+				<tr ng-repeat="elements in basket.array">
+					<!-- Goods -->
+					<td class="basket-content-goods">
+						<h4>{{basket.information[$index].title}}</h4>
+						<h4>{{basket.getter($index,"model").value}}</h4>
+						<img src='{{basket.getter($index,"imageURL1").value}}' alt="Image">
+						<div>
+							<!-- Short list -->
+							<ul>
+								<li>
+									<b>{{basket.getter($index,"maximumPower").translate}}</b><br>
+									{{basket.getter($index,"maximumPower").value}}
+									{{basket.getter($index,"maximumPower").dimension}}
+								</li>
+								<li>
+									<b>{{basket.getter($index,"makerId").translate}}</b><br>
+									{{basket.getter($index,"makerId").value}}
+									{{basket.getter($index,"makerId").dimension}}
+								</li>
+								<li>
+									<b>Розміри</b><br>
+									{{basket.getter($index,"panelHeight").value}}X
+									{{basket.getter($index,"panelWidth").value}}X
+									{{basket.getter($index,"panelThickness").value}}
+									{{basket.getter($index,"panelWidth").dimension}}
+								</li>
+								<li>
+									<b>{{basket.getter($index,"productWarrantyId").translate}}</b><br>
+									{{basket.getter($index,"productWarrantyId").value}}
+									{{basket.getter($index,"productWarrantyId").dimension}}
+								</li>
+							</ul>
+							<!-- Other content of the list -->
+							<ul ng-hide="basket.information[$index].listShow">
+								<li ng-repeat="element in basket.information[$index].array">
+									<b>{{element.translate}}</b><br>
+									{{element.value}}{{element.dimension}}
+								</li>
+							</ul>
+							<button type="button" class="btn btn-link basket-content-goods-button" ng-click="listOther($event,$index)">Більше...</button>							
+						</div>
+					</td>
+					<!-- Price per unit -->
+					<td class="basket-content-pricePerUnit">
+						{{basket.information[$index].pricePerUnit}} Євро
+					</td>
+					<!-- Count -->
+					<td class="basket-content-count">
+						<input ng-model="basket.information[$index].count" maxlength="5" ng-change="fieldChanged($index,$event)">
+					</td>
+					<!-- Total -->
+					<td class="basket-content-total">
+						{{basket.information[$index].total}} Євро
+					</td>
+					<!-- Remove -->
+					<td class="basket-content-remove" ng-click="remove($index)" title="Видалити">X</td>
+				</tr>
+			</table>
+		</div>
+		
+		<!-- Total -->
+		<p class="basket-total" ng-if="!basket.array.isEmpty()">Загальна сума: {{basket.totalSum}} Євро</p>
+		
+		<!-- Buttons -->
+		<div class="basket-footer-buttons">
+			<p class="buttonEmpty" ng-click="globalController_back()">Назад</p>
+			<a href="#order" class="buttonFill">Замовити</a>
+		</div>
+		
+	</div>
+
+</section>

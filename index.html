@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html ng-app="mainApp">
+<head>
+	<title>Сонячні електростанції</title>
+	<link rel="shortcut icon" type="image/x-icon" href="images/title.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta name="description" content="сонячні електростанції">
+	<meta name="keywords" content="сонячні електростанції">
+	<!-- <link rel="stylesheet" href="bootstrap/bootstrap.css"> -->
+	<link rel="stylesheet" href="bootstrap/bootstrap.css">
+	<script src="bootstrap/jquery-3.1.1.js"></script>
+	<script src="bootstrap/bootstrap.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/app.js" type="text/javascript"></script>
+	<script src="js/javascript.js" type="text/javascript"></script>
+	<!-- Models -->
+	<script src="modules/goodsCatalogue/model/model.js"></script>
+	<script src="modules/goodsComparing/goodsComparing.js"></script>
+	<script src="modules/basket/basket.js"></script>
+	<!-- Services -->
+	<script src="modules/slider/slider.js"></script>	
+	<!-- Controllers -->
+	<script src="modules/mainPage/ctrl.js" type="text/javascript"></script>
+	<script src="modules/mainPage/introduction/introductionCtrl.js"></script>
+	<script src="modules/ourWork/ourWorkCtrl.js"></script>
+	<script src="modules/goodsCatalogue/ctrl.js" type="text/javascript"></script>
+	<script src="modules/goodsCatalogue/model/modelCtrl.js"></script>
+	<script src="modules/aboutUs/aboutUsCtrl.js" type="text/javascript"></script>
+	<script src="modules/contactInformation/contactInformationCtrl.js"></script>
+	<script src="modules/order/orderCtrl.js"></script>
+	<script src="modules/interesting/interesting.js"></script>
+</head>
+
+<body ng-controller="globalController">
+	
+	<!-- Navigation -->
+	<nav>
+		<div class="nav-inner screenWidth">
+			<a href="#mainPage" ng-click="mainController_show('mainPage')">
+				<div class="nav-logo">
+					<img src="images/logoMainNav.png" width="200" alt="Logo">
+				</div>
+			</a>
+			<div class="nav" ng-click="mainController_nav()">
+				<div class="nav-line"></div><div class="nav-line"></div><div class="nav-line"></div>
+			</div>
+			<ul class="nav-list">
+				<li class="nav-list-item">
+					<a href="#aboutUs" ng-click="mainManuHide()">ПРО<br>КОМПАНІЮ</a>
+				</li>
+				<li class="nav-list-item">
+					<a href="#ourWork" ng-click="mainManuHide()">НАШІ<br>РОБОТИ</a>
+				</li>
+				<li class="nav-list-item">
+					<a id="goodsCatalogue" href="#goodsCatalogue" ng-click="mainManuHide()">КАТАЛОГ<br>ТОВАРІВ</a>
+				</li>
+				<li class="nav-list-item">
+					<a href="#interesting" ng-click="mainManuHide()">ЦІКАВЕ<br>ДЛЯ ВАС</a>
+				</li>
+				<li class="nav-list-item">
+					<a href="#order" ng-click="mainManuHide()">ЗРОБИТИ<br>ЗАМОВЛЕННЯ</a>
+				</li>
+				<li class="nav-list-item">
+					<a href="#contactInformation" ng-click="mainManuHide()">КОНТАКТНА<br>ІНФОРМАЦІЯ</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	
+	<!-- Information -->
+	<div class="catalogue-information" ng-show="catInformation">
+		<div class="catalogue-information-inner screenWidth">
+			<!-- Basket -->
+			<a class="basket" href="#basket" title="Кошик товарів">
+				<div class="basketImg-outer">
+					<div class="basketImg"></div>
+					<div class="basketFull">{{basketNumber}}</div>
+				</div>
+			</a>
+			<!-- Product for comparison -->
+			<a href="#goodsComparing" class="catalogue-information-compare">
+				<div class="compareImg-outer">
+					<div class="compareImg"></div>
+				</div>
+				Товар для порівняння
+				<div class="catalogue-information-compare-counter">{{comparingCounter}}</div>
+			</a>
+		</div>
+	</div>
+	
+	<!-- View	 -->
+	<div ng-view onload="viewLoaded()" ng-controller="basketController"></div>
+	
+	<!-- Scroll up image -->
+	<!-- <img class="scrollUp" src="images/scrollUp.png" alt="Scroll up"> -->
+	
+	<!-- Map -->
+	<div id="map" class="mainPage-map ng-class:{'mainPage-mapNotVisible': !isMapVisible}"></div>
+		
+	<!-- Footer -->
+	<footer>
+		<div class="footer-inner screenWidth">
+			<div class="footer-workingTime">
+				<div class="workingTime-outer">
+					<label class="workingTimeImg"></label>
+				</div>
+				<div class="footer-workingTime-caption">
+					Понеділок-П'ятниця<br>з 10.00 до 18.00 год
+				</div>
+			</div>
+			<div class="footer-location">
+				<div class="locationImg-outer">
+					<label class="locationImg"></label>
+				</div>
+				<div class="footer-location-caption">
+					м. Івано-Франківськ<br>вул. Бельведерська 27
+				</div>
+			</div>
+			<div class="footer-phone">
+				<div class="phoneImg-outer">
+					<label class="phoneImg"></label>
+				</div>
+				<div class="footer-phone-caption">
+					+38 095 9 32 35 35<br>
+					+38 067 6 49 59 89
+				</div>
+			</div>
+			<div class="footer-mail">
+				<div class="mailImg-outer">
+					<label class="mailImg"></label>
+				</div>
+				<div class="footer-mail-caption">
+					sun.energy.if@gmail.com
+				</div>
+			</div>
+			<div class="footer-facebook">
+				<div class="facebookImg-outer">
+					<a href="https://www.facebook.com/e.if.ua/" target="_blank"> 
+						<label class="facebookImg"></label>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div style="padding: 20px;">
+			&#169 ТОВ "Енергія Сонця. Альтернативна енергетика" 2016-2018<br>
+			<a id="siteMaker" href="#">Розробник сайту Олег Сивак</a>
+		</div>
+	</footer>
+	
+	<!-- Screen hover -->
+	<div id="screen" ng-show="screen || message.isVisible"></div>
+	
+	<!-- Message -->
+	<div class="messages" ng-show="message.isVisible">
+		<h2 class="messages-title" ng-show="message.title!=''">{{message.title}}</h2>
+		<div class="messages-content" ng-show="message.content!=''">{{message.content}}</div>
+		<div class="messages-buttons">
+			<button type="button" class="messages-buttons-item btn_type1" ng-repeat="button in message.buttons" ng-show="button.isVisible" ng-click="messageClick(button.id)" ng-model="button.id">{{button.name}}</button>
+			<button id="messageFlag" style="visibility: hidden;"></button>
+		</div>
+	</div>	
+	
+	<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1PbBv2UmDRswnG528poGWnEbyYSzzknE&callback=initMap" async defer></script> -->
+</body>
+</html>

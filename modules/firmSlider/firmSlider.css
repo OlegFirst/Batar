@@ -1,0 +1,40 @@
+#firmSliderOuter{
+	position: relative;
+	border-radius: 10px;
+	height: 140px;
+	overflow: hidden;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	display: none;
+}
+
+#firmSlider{
+	position: absolute;
+	height: inherit;
+	overflow: hidden;
+	left: 0px;
+}
+
+/*Images*/
+.firmSlider-image{
+	display: inline-block;
+	box-shadow: 4px 5px 7px lightgrey;
+	width: 200px;
+	height: 125px;
+	margin: 5px;
+}
+
+.firmSlider-gradient-left, .firmSlider-gradient-right{
+	position: absolute;
+	top: 0px;
+	width: 30px;
+	height: inherit;
+}
+.firmSlider-gradient-left{
+	background: linear-gradient(to right, rgba(229,230,243,1), rgba(255,255,255,0));
+	left: 0px;
+}
+.firmSlider-gradient-right{
+	background: linear-gradient(to left, rgba(229,230,243,1), rgba(255,255,255,0));
+	right: 0px;
+}

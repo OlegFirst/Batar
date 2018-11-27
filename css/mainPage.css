@@ -1,0 +1,257 @@
+@import url('mainPageNav.css');
+
+.section-inner{
+	position: relative;
+	background: url(../images/mainPage.jpg) center center;
+	color: #FFFFFF;
+	background-size: cover;
+	width: 100%;
+	height: 100vh;
+	min-height: 570px;
+	z-index: 0;
+}
+
+.mainPage-title{
+	background-color: rgba(22,65,137,0.28);
+	color: #FFFFFF;
+	margin: 0 auto;
+	margin-top: 0px;
+	text-align: center;
+	padding: 10px;
+}
+.mainPage-title>h1{
+	color: white;
+	margin: 0;
+}
+.mainPage-title-group{
+	display: block;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	-webkit-flex-direction: row;
+	justify-content: space-around;
+	-webkit-justify-content: space-around;
+	align-items: center;
+	-webkit-align-items: center;
+	flex-wrap: wrap;
+	-webkit-flex-wrap: wrap;
+	padding-left: 0;
+}
+.mainPage-title-group-item{
+	display: block;
+	color: #FFFFFF;
+	font-size: 1.25em;
+	font-weight: bold;
+	padding: 5px;
+	cursor: pointer;
+}
+.mainPage-title-group-item>a{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.mainPage-title-group-item:hover{
+	background-color: rgba(154,185,61,0.8);
+}
+
+/* Header ------------------------- */
+.mainPage-header{
+	background-color: rgba(22, 65, 137, 0.5);
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100px;
+	overflow: auto;
+	font-size: 1.25em;
+}
+.mainPage-header-inner{
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	-webkit-flex-direction: row;
+	justify-content: space-between;
+	-webkit-justify-content: space-between;
+	align-items: center;
+	-webkit-align-items: center;
+	flex-wrap: wrap;
+	-webkit-flex-wrap: wrap;
+	height: 100px;
+}
+/*Logo*/
+.mainPage-header-logo-outer{
+	width: 200px;
+	height: 77px;
+}
+.mainPage-header-logo{
+	display: block;
+	height: 100%;
+	max-height: 77px;
+}
+.mainPage-header-logo>img{
+	position: relative;
+	height: 100%;
+	width: auto;
+	left: -20px;
+}
+/*Phone*/
+.mainPage-header-phone{
+	width: 210px;
+	overflow: hidden;
+}
+.mainPage-header-phone p:first-child{
+	padding-top: 10px;
+}
+#mainPage .phoneImg-outer{
+	position: relative;
+	top: 15px;
+	float: left;
+	margin-right: 10px;
+}
+/*Location*/
+.mainPage-header-location{
+	width: 305px;
+	overflow: hidden;
+}
+.mainPage-header-location p:first-child{
+	padding-top: 10px;
+}
+#mainPage .locationImg-outer{
+	position: relative;
+	top: 15px;
+	float: left;
+	margin-right: 10px;
+}
+
+/*Facebook & basket -----------------------------------*/
+.mainPage-fB{
+	position: fixed;
+	background-color: rgba(22, 65, 137, 0.5);
+	border-radius: 5px 0 0 5px;
+	right: 0px;
+	bottom: 10px;
+}
+/*Facebook*/
+.mainPage-facebook{
+	position: relative;
+	display: block;
+	margin: 14px 8px 8px 8px;
+	top: -10px;
+}
+/*Basket*/
+#mainPage .basket{
+	display: block;
+	margin: 8px;
+}
+
+/* Carousel ----------------------------*/
+.ourWorks{
+	margin-top: 0px;
+}
+#mainPageCarouselOuter{
+	clear: both;
+	width: 100%;
+	padding: 0;
+}
+#mainPageCarouselOuter .left{	
+	cursor: pointer;
+}
+#mainPageCarouselOuter .right{
+	cursor: pointer;
+}
+
+/* Slogan ---------------------------------- */
+.mainPage-slogan{
+	background-color: #f2f3f5;
+	margin: 0px;
+	font-weight: bold;
+	text-align: center;
+	padding: 100px;
+	line-height: 150%;
+	font-size: 32px;
+}
+
+/*Introduction view ------------------------------------*/
+#introduction{
+	margin-top: 105px;
+}
+.introduction-header{
+	margin: 50px auto;
+}
+.introduction-header-group{
+	padding-left: 0;
+}
+/*Content*/
+.introduction-content{
+	width: 100%;
+	overflow: hidden;
+	margin-top: 50px;
+	text-align: justify;
+}
+.introduction-content-title{
+	text-align: center;
+	font-weight: bold;
+}
+.introduction-content-image{
+	border: 3px solid #548235;
+	border-radius: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	float: left;
+}
+#introductionServiceList{
+	position: relative;
+	left: 10px;
+}
+#greenTariff{
+	margin-bottom: 50px;
+}
+
+/* Responsive ----------------------------*/
+
+/*SM >=768px*/
+@media only screen and (max-width: 991.9px){
+	.mainPage-header{
+		height: 175px;
+	}
+	.mainPage-header-inner{
+		height: 170px;
+	}
+	.mainPage-header-logo-outer{
+		width: 100%;
+	}
+	.mainPage-header-phone, .mainPage-header-location{
+		width: 50%;
+	}
+	.mainPage-header-fB{
+		float: left;
+	}
+}
+
+/*XS <768px*/
+@media only screen and (max-width: 767.9px){
+	.mainPage-header{
+		height: 250px;
+	}
+	.mainPage-header-logo, .mainPage-header-phone, .mainPage-header-location{
+		width: 100%;
+	}
+	.mainPage-title{
+		/*margin-top: 40px;*/
+	}
+	.mainPage-slogan{
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+/*Exception 337*/
+@media only screen and (max-width: 450px){
+	p{
+		font-size: 0.9em;
+	}
+	.mainPage-title h1{
+		font-size: 2em;
+	}
+}
+
+/*MD >=992px*/
+/*LG >=1200px*/

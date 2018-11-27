@@ -1,0 +1,167 @@
+<section id="catalogue" ng-controller="modelController">
+		
+	<!-- Goods catalogue menu -->
+	<div class="catalogue-menu-line">
+		<div class="catalogue-menu screenWidth">
+			<div class="nav" onclick="catalogueNav()">
+				<div class="nav-line"></div><div class="nav-line"></div><div class="nav-line"></div>
+			</div>
+			<ul>
+				<li>
+					<a href="" class="ng-class:{'catalogue-menu-line-item-selected': goodsShow.type==1}" ng-click="catalogueMenuItem(1)">Готові електростанції</a>
+				</li>
+				<li>
+					<a href="" class="ng-class:{'catalogue-menu-line-item-selected': goodsShow.type==2}" ng-click="catalogueMenuItem(2)">Сонячні панелі</a>
+				</li>
+				<li>
+					<a href="" class="ng-class:{'catalogue-menu-line-item-selected': goodsShow.type==3}" ng-click="catalogueMenuItem(3)">Мережеві інвертори</a>
+				</li>
+				<li>
+					<a href="" class="ng-class:{'catalogue-menu-line-item-selected': goodsShow.type==4}" ng-click="catalogueMenuItem(4)">Монтажні конструкції</a>
+				</li>
+				<li>
+					<a href="" class="ng-class:{'catalogue-menu-line-item-selected': goodsShow.type==5}" ng-click="catalogueMenuItem(5)">Вітрові електростанції</a>
+				</li>
+				<li>
+					<a href="" class="ng-class:{'catalogue-menu-line-item-selected': goodsShow.type==6}" ng-click="catalogueMenuItem(6)">Додаткове обладнання</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+		
+	<div class="catalogue-inner screenWidth">
+		<!-- Page name -->
+		<h2 class="pageTitle">{{goodsShow.selectedItem}}</h2>
+		
+		<!-- Pagination -->
+		<div class="catalogue-pagination container" ng-controller="paginationController">
+			<ul class="pagination pagination-sm">
+				<li ng-repeat="obj in pagination.paginationCount" class="ng-class:{'active': pagination.indexActive==$index};">
+					<a class="pagination-link" href="#" onclick="paginationPreventDefault(event)" ng-click="paginationEvent($index); $parent.pagination.indexActive=$index">{{obj.index}}</a>
+				</li>
+			</ul>			
+		</div>
+		
+		<!-- Filter -->
+		<div class="catalogue-filter container" ng-controller="filterController">
+			<h3>Фільтр товарів</h3>
+			<ul>
+				<!-- Filter. First part -->
+				<li ng-repeat="item in items" ng-init="blockSelected=false">
+					<p class="catalogue-filter-itemName ng-class:{'checkboxColor': !blockSelected};"><b>{{item.title}}</b></p>
+					<p class="catalogue-filter-hint" ng-if="!blockSelected">Виберіть позицію</p>
+					<p class="checkbox ng-class:{'checkboxColor': !blockSelected};" ng-repeat="element in item.elements">
+						<label><input type="checkbox" class="ng-class:{'checkboxColor': !blockSelected};" ng-model="element.isSelected" ng-change="filterChange($index)">{{element.elementName}} {{element.itemDimension}}</label>
+						<span style="display:none;">{{$parent.blockSelected=(element.isSelected || $parent.blockSelected) ? true : false}}</span>
+					</p>				
+				</li>
+				<!-- Filter. Second part -->
+				<li ng-repeat="item in itemsInterval" ng-init="blockSelected=false">
+					<p class="catalogue-filter-itemName ng-class:{'checkboxColor': !blockSelected};"><b>{{item.title}}</b></p>
+					<p class="catalogue-filter-hint" ng-if="!blockSelected">Виберіть позицію</p>
+					<p class="checkbox" ng-repeat="element in item.elements">
+						<label><input type="checkbox" class="ng-class:{'checkboxColor': !blockSelected};" ng-model="element.isSelected" ng-change="filterIntervalChange($index)">{{element.valueFrom}}-{{element.valueTo}} {{item.itemDimension}}</label>
+						<span style="display:none;">{{$parent.blockSelected=(element.isSelected || $parent.blockSelected) ? true : false}}</span>
+					</p>
+				</li>
+			</ul>
+		</div>
+		
+		<!-- Goods list -->
+				
+		<div class="catalogue-goodsList" ng-controller="viewController">
+			<div class="goods-inner-empty" ng-hide="emptyMessage.hide">{{emptyMessage.msg}}</div>
+			<div class="goods" ng-repeat="obj in goods" ng-show="pagination.min<=$index && $index<pagination.max">
+				<div class="goods-inner">
+					<div class="goods-header">
+						<h4>{{obj.title}}</h4>
+						<h4 class="goods-header-value"><b>{{obj.getter("model").value}}</b></h4>
+					</div>
+					<div class="goods-content">
+						<div class="goods-content-image-outer">
+							<img src='{{obj.getter("imageURL1").value}}' width="180" height="auto" alt="Goods image" onload="imageSize(this)">
+						</div>
+						<!-- Textual information_(start) -->
+						<!-- Ready power plants -->
+						<ul class="goods-content-itemList" ng-show="goodsShow.type==1">
+							<li>
+								<span>{{obj.getter("maximumPower").translate}}</span>
+								<p>{{obj.getter("maximumPower").value}} {{obj.getter("maximumPower").dimension}}</p>
+							</li>
+							<li><span>{{obj.getter("makerId").translate}}</span>
+								<p>{{obj.getter("makerId").value}}</p>
+							</li>
+							<li><span>Розміри</span>
+								<p>{{obj.getter("panelWidth").value}} Х {{obj.getter("panelHeight").value}} Х {{obj.getter("panelThickness").value}} {{obj.getter("panelWidth").dimension}}</p>
+							</li>
+							<li><span>{{obj.getter("productWarrantyId").translate}}</span>
+							<p>{{obj.getter("productWarrantyId").value}} {{obj.getter("productWarrantyId").dimension}}</p></li>
+						</ul>
+						<!-- Solar panels -->
+						<ul class="goods-content-itemList" ng-show="goodsShow.type==2">
+							<li>
+								<span>{{obj.getter("maximumPower").translate}}</span>
+								<p>{{obj.getter("maximumPower").value}} {{obj.getter("maximumPower").dimension}}</p>
+							</li>
+							<li><span>{{obj.getter("makerId").translate}}</span>
+								<p>{{obj.getter("makerId").value}}</p>
+							</li>
+							<li><span>Розміри</span>
+								<p>{{obj.getter("panelWidth").value}} Х {{obj.getter("panelHeight").value}} Х {{obj.getter("panelThickness").value}} {{obj.getter("panelWidth").dimension}}</p>
+							</li>
+							<li><span>{{obj.getter("productWarrantyId").translate}}</span>
+							<p>{{obj.getter("productWarrantyId").value}} {{obj.getter("productWarrantyId").dimension}}</p></li>
+						</ul>
+						<!-- Inverters -->
+						<ul class="goods-content-itemList" ng-show="goodsShow.type==3">
+							<li>
+								<span>{{obj.getter("outPutPower").translate}}</span>
+								<p>{{obj.getter("outPutPower").value}} {{obj.getter("outPutPower").dimension}}</p>
+							</li>
+							<li><span>{{obj.getter("makerId").translate}}</span>
+								<p>{{obj.getter("makerId").value}}</p>
+							</li>
+							<li><span>Розміри</span>
+								<p>{{obj.getter("width").value}} Х {{obj.getter("height").value}} Х {{obj.getter("thickness").value}} {{obj.getter("width").dimension}}</p>
+							</li>
+							<li><span>{{obj.getter("productWarranty").translate}}</span>
+							<p>{{obj.getter("productWarranty").value}} {{obj.getter("productWarranty").dimension}}</p></li>
+						</ul>
+						<!-- Installation constructions -->
+						<!-- Wind power plants -->
+						<!-- Additional equipment -->
+						<!-- Textual information_(end) -->
+					</div>
+					<div class="goods-footer">
+						<!-- Price -->
+						<p><b>Ціна: </b>
+							{{obj.getter("price1").value}} {{obj.getter("price1").dimension}}
+							<span ng-if="goods.type==2">або {{obj.getter("price2").value}} {{obj.getter("price2").dimension}}</span>
+						</p>
+						<!-- Price_(end) -->
+						<div class="ng-class: obj.basketSelected; basket" ng-click="basketInsert($event)">
+							<div class="basketImg-outer">
+								<div class="basketImg"></div>
+							</div>
+						</div>
+						<div class="ng-class: obj.comparingSelected; compare" title="Порівняти" ng-click="comparingInsert($event)">
+							<div class="compareImg-outer">
+								<div class="compareImg"></div>
+							</div>
+						</div>
+						<a href="#gCshowMore" id="{{obj.getter('id').value}}" class="details" ng-click="goodsPass()">Детальніше...</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Ready solution for You -->
+	<div class="readySolution screenWidth">
+		<div class="readySolution-hover"></div>
+		<h2 class="readySolution-content"><b>ГОТОВІ РІШЕННЯ ДЛЯ ВАС</b></h2>
+		<h3 class="readySolution-content">СОНЯЧНІ ЕЛЕКТРОСТАНЦІЇ РІЗНОЇ ПОТУЖНОСТІ ТА ЦІНОВОЇ КАТЕГОРІЇ</h3>
+		<a class="readySolution-content buttonEmptyBlack" href="#">Детальніше</a>
+	</div>
+	
+</section>

@@ -1,0 +1,101 @@
+outerIds.forEach(function(element,i){
+		HTMLstructure(element,i,galleries[i].firstImage());
+	});
+	
+	//Create HML-structure
+	function HTMLstructure(outerId,i,firstImage){
+		let outerTag=document.querySelector("#"+outerId);
+		//Set outerTag parameters
+		let width=$("#"+outerId).width();
+		let height=Math.floor(width/pro);
+		$("#"+outerId).css("height",height+"px");
+		// - Image
+		let image=document.createElement('img');
+		image.setAttribute('src',firstImage);
+		image.setAttribute('alt','Slider photo');
+		image.setAttribute('onclick','slider_zoomIn('+i+')');
+		image.setAttribute('class','slider-image');
+		image.addEventListener('load',imageShow);
+		outerTag.appendChild(image);
+		// - Arrows
+		//Left
+		let arrowLeft=document.createElement('div');
+		arrowLeft.setAttribute('class','slider-arrowLeft');
+		arrowLeft.setAttribute('onclick','slider_left('+i+')');
+		outerTag.appendChild(arrowLeft);
+		//Line1
+		let arrowLine1=document.createElement('div');
+		arrowLine1.setAttribute('class','slider-arrowLine1');
+		arrowLeft.appendChild(arrowLine1);
+		//Line2
+		let arrowLine2=document.createElement('div');
+		arrowLine2.setAttribute('class','slider-arrowLine2');
+		arrowLeft.appendChild(arrowLine2);
+		//Right
+		arrowRight=document.createElement('div');
+		arrowRight.setAttribute('class','slider-arrowRight');
+		arrowRight.setAttribute('onclick','slider_right('+i+')');
+		outerTag.appendChild(arrowRight);
+		//Line1
+		arrowLine1=document.createElement('div');
+		arrowLine1.setAttribute('class','slider-arrowLine1');
+		arrowRight.appendChild(arrowLine1);
+		//Line2
+		arrowLine2=document.createElement('div');
+		arrowLine2.setAttribute('class','slider-arrowLine2');
+		arrowRight.appendChild(arrowLine2);
+		//Zoom box. Create single only.
+		let isCreated=document.getElementById('zoomBox');
+		if (isCreated==null){
+			//Zoom box
+			let zoomBox=document.createElement('div');
+			zoomBox.setAttribute('id','zoomBox');
+			outerTag.appendChild(zoomBox);
+			//Wrapper
+			let wrapper=document.createElement('div');
+			wrapper.setAttribute('id','zoomWrapper');
+			outerTag.appendChild(wrapper);
+			//Outer
+			let outer=document.createElement('div');
+			outer.setAttribute('id','zoomImageOuter');
+			wrapper.appendChild(outer);
+			//Zoom image			
+			image=document.createElement('img');
+			image.setAttribute('alt','Photo');
+			image.setAttribute('id','zoomImage');
+			outer.appendChild(image);
+			//Zoom arrows
+			// - Left
+			let arrowLeft=document.createElement('div');
+			arrowLeft.setAttribute('class','slider-arrowLeft');
+			arrowLeft.setAttribute('onclick','sliderZoom_left('+i+')');
+			outer.appendChild(arrowLeft);
+			// - Line1
+			let arrowLine1=document.createElement('div');
+			arrowLine1.setAttribute('class','slider-arrowLine1');
+			arrowLeft.appendChild(arrowLine1);
+			// - Line2
+			let arrowLine2=document.createElement('div');
+			arrowLine2.setAttribute('class','slider-arrowLine2');
+			arrowLeft.appendChild(arrowLine2);
+			// - Right
+			arrowRight=document.createElement('div');
+			arrowRight.setAttribute('class','slider-arrowRight');
+			arrowRight.setAttribute('onclick','sliderZoom_right('+i+')');
+			outer.appendChild(arrowRight);
+			// - Line1
+			arrowLine1=document.createElement('div');
+			arrowLine1.setAttribute('class','slider-arrowLine1');
+			arrowRight.appendChild(arrowLine1);
+			// - Line2
+			arrowLine2=document.createElement('div');
+			arrowLine2.setAttribute('class','slider-arrowLine2');
+			arrowRight.appendChild(arrowLine2);
+			//Close element
+			let span=document.createElement('span');
+			span.setAttribute('id','zoomImageClose');
+			span.setAttribute('onclick','slider_zoomInClose('+i+')');
+			span.innerHTML="X";
+			outer.appendChild(span);
+		}
+	}	

@@ -1,0 +1,25 @@
+<section id="order">
+	
+	<div class="order screenWidth">
+		<h2 class="order-title">Зробити замовлення</h2>
+		<form class="order-form" ng-submit="orderSubmit()">
+			<input type="text" placeholder="Ім'я" ng-model="name" required>
+			<input type="text" placeholder="Прізвище" ng-model="surname" required>
+			<input type="email" placeholder="E-mail" ng-model="eMail" required>
+			<span ng-hide="orderForm.eMail">Error</span>
+			<input type="phoneNumber" placeholder="Номер телефону (при бажанні)" ng-model="phoneNumber">
+			<input type="text" placeholder="Район/область, місто" ng-model="location" required>
+			<textarea id="remark" rows="5" placeholder="Коментар до замовлення (при бажанні)" ng-model="remark"></textarea>
+			<label class="order-form-basket">
+				<input id="orderBasket" type="checkbox" ng-model="isOrderBasket">Додати товар в кошику
+			</label>
+			<div class="order-form-footer">
+				<a id="orderBack" href="#">Назад</a>
+				<button id="orderSubmit" type="submit">Надіслати замовлення</button>
+			</div>
+		</form>
+	</div>
+	
+	<div class="order-filter"></div>
+	
+</section>

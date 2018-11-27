@@ -1,0 +1,141 @@
+.sliderOuter{
+	position: relative;
+	width: 100%;
+	min-height: 200px;
+	overflow: hidden;
+}
+
+/*Image*/
+.slider-image{
+	width: 100%;
+	height: auto;
+	cursor: pointer;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	-webkit-transition: opacity 1s;
+	transition: opacity 1s;
+}
+.slider-image-show{
+	opacity: 1;
+	filter: alpha(opacity=1);
+}
+.slider-image:hover{
+	-webkit-filter: brightness(112%);
+	filter: brightness(112%);
+}
+
+/*Arrows*/
+.slider-arrowLeft, .slider-arrowRight{
+	position: absolute;
+	background-color: rgba(255,255,255,0.5);
+	width: 20px;
+	height: 37px;
+	top: 50%;
+	-ms-transform: translate(0,-50%);
+	-webkit-transform: translate(0,-50%);
+	transform: translate(0,-50%);
+	cursor: pointer;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+}
+.slider-arrowLeft{
+	left: 0px;
+}
+.slider-arrowLine1, .slider-arrowLine2{
+	position: absolute;
+	border-right: 1px solid blue;
+	height: 20px;
+}
+.slider-arrowLine1{
+	left: 9px;
+	top: 2px;
+	-ms-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+.slider-arrowLine2{
+	left: 9px;
+	top: 16px;
+	-ms-transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+.slider-arrowLeft:hover, .slider-arrowRight:hover{
+	background-color: rgba(70,80,200,0.5);
+}
+
+.slider-arrowRight{
+	right: 0px;
+}
+.slider-arrowRight .slider-arrowLine1{
+	left: 9px;
+	top: 2px;
+	-ms-transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+.slider-arrowRight .slider-arrowLine2{
+	left: 9px;
+	top: 16px;
+	-ms-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+/*Zoom box*/
+.zoomBox{
+	position: fixed;
+	background-color: rgba(255,255,255,0.8);
+	width: 100%;
+	height: 100vh;
+	left: 0px;
+	top: 0px;	
+	z-index: 10;	
+	display: none;
+}
+.zoomBox-activated{
+	display: block !important;	
+	-webkit-filter: brightness(10%) !important;
+	filter: brightness(10%) !important;
+}
+.zoomWrapper{
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	left: 0px;
+	top: 0px;
+	z-index: 20;
+	display: none;
+}
+.zoomWrapper-activated{
+	display: block !important;
+}
+.zoomImageOuter{
+	position: absolute;
+	border: 1px solid white;
+	border-radius: 10px;
+	overflow: hidden;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	z-index: 10;
+	display: none;
+}
+.zoomImageOuter-activated{
+	display: block !important;
+}
+.zoomImageClose{
+	position: absolute;
+	display: block;
+	background-color: rgba(255,255,255,0.8);
+	width: 30px;
+	right: 0px;
+	top: 0px;
+	text-align: center;
+	cursor: pointer;
+}
+.zoomImageClose:hover{
+	background-color: rgba(70,80,200,0.5);
+}

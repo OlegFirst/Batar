@@ -1,0 +1,274 @@
+<section id="ourWork" ng-controller="ourWorkController">
+	
+	<div class="hover"></div>
+		
+	<!-- Page name -->
+	<h2 class="pageTitle">НАШІ РОБОТИ</h2>
+	
+	<div class="ourWork-gallery screenWidth">
+		<div class="ourWork-gallery-item" ng-repeat="gallery in galleries">
+			<div class="ourWork-gallery-item-image">
+				<div id="{{gallery.getOuterId()}}" class="sliderOuter" title="{{gallery.objectNumber()}}">
+					<!-- Sinner -->
+					<div class="spinner" ng-if="!loadedImage[$index]">
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+					</div>
+					<!-- Image list -->
+					<img class="slider-image slider-image-show" data-ng-src="{{gallery.getFirstImage()}}" alt="Slider photo" ng-click="gallery.zoomIn()" imageonload="loadedImage($index)" />
+					<!-- Slider arrows -->
+					<div class="slider-arrowLeft" ng-click="gallery.left()">
+						<div class="slider-arrowLine1"></div>
+						<div class="slider-arrowLine2"></div>
+					</div>
+					<div class="slider-arrowRight" ng-click="gallery.right()">
+						<div class="slider-arrowLine1"></div>
+						<div class="slider-arrowLine2"></div>
+					</div>
+					<!-- Image zoom container -->
+					<div class="zoomBox"></div>
+					<div class="zoomWrapper">
+						<div class="zoomImageOuter">
+							<img class="zoomImage" alt="Photo" />
+							<div class="slider-arrowLeft" ng-click="gallery.leftZoom()">
+								<div class="slider-arrowLine1"></div>
+								<div class="slider-arrowLine2"></div>
+							</div>
+							<div class="slider-arrowRight" ng-click="gallery.rightZoom()">
+								<div class="slider-arrowLine1"></div>
+								<div class="slider-arrowLine2"></div>
+							</div>
+							<!-- Zoom close button -->
+							<span class="zoomImageClose" ng-click="gallery.zoomInClose()">X</span>
+						</div>				
+					</div>
+				</div>
+			</div>
+			<!-- Object information -->
+			<div class="ourWork-gallery-item-caption">
+				<h4>{{gallery.getTitle()}}</h4>
+				<p>Місце: {{gallery.getLocation()}}</p>
+				<p ng-repeat="item in gallery.getContent()">{{item}}</p>
+			</div>
+		</div>
+	
+		
+	
+		<!-- Object 9 -->
+		<!-- <div class="ourWork-gallery-item">
+			<div class="ourWork-gallery-item-image">
+				<div id="slider9" class="sliderOuter">
+					<div class="spinner">
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+					</div>
+				</div>
+			</div>
+			<div class="ourWork-gallery-item-caption">
+				<h4>Сонячна електростанція потужністю 11,88 кВт. Підключена до "зеленого тарифу"</h4>
+				<p>Місце: м. Івано-Франківськ.</p>
+				<p>Сонячні панелі - Sharp 360 Вт, 33 шт., виробництва Німеччини з гарантією на 25 років.</p>
+				<p>Працює система разом з інвертором фірми Q3 Energie 10 кВт (Німеччина). Гарантія на інвертори 5 років.</p>
+			</div>
+		</div> -->
+		<!-- Object 8 -->
+		<!-- <div class="ourWork-gallery-item">
+			<div class="ourWork-gallery-item-image">
+				<div id="slider8" class="sliderOuter">
+					<div class="spinner">
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+					</div>
+				</div>
+			</div>
+			<div class="ourWork-gallery-item-caption">
+				<h4>Сонячна електростанція потужністю 27,7кВт. Підключена до "зеленого тарифу"</h4>
+				<p>Місце: Івано-Франківська область.</p>
+				<p>Сонячні панелі - SHARP 68шт., 360 Вт (Німеччина) та Longi Solar 11шт., 290Вт з гарантією на 25 років.</p>
+				<p>Панелі змонтовано на оригінальній конструкції для металочерепиці.</p>
+				<p>Система працює з двома інверторами фірми QX3 (Німеччина). Гарантія на інвертори 5 років.</p>
+			</div>
+		</div> -->
+		<!-- Object 7 -->
+		<!-- <div class="ourWork-gallery-item">
+			<div class="ourWork-gallery-item-image">
+				<div id="slider7" class="sliderOuter">
+					<div class="spinner">
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+					</div>
+				</div>
+			</div>
+			<div class="ourWork-gallery-item-caption">
+				<h4>Сонячна електростанція потужністю 21кВт. Підключена до "зеленого тарифу"</h4>
+				<p>Місце: Івано-Франківська область.</p>
+				<p>Сонячні панелі - Aleo Solar 70шт. 300Вт (Німеччина). Преміальна серія з рамою на 5см та гарантією на 25 років.</p>
+				<p>Панелі змонтовано на оригінальній монтажній конструкції для бітумної черепиці.</p>
+				<p>Працює система разом з двома інверторами фірми QX3 (Німеччина). Гарантія на інвертори 5 років.</p>
+			</div>
+		</div> -->
+		<!-- Object 6 -->
+		<!-- <div class="ourWork-gallery-item">
+			<div class="ourWork-gallery-item-image">
+				<div id="slider6" class="sliderOuter">
+					<div class="spinner">
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+					</div>
+				</div>
+			</div>
+			<div class="ourWork-gallery-item-caption">
+				<h4>Сонячна електростанція потужністю 15,12кВт. Підключена до "зеленого тарифу"</h4>
+				<p>Місце: Івано-Франківська область.</p>
+				<p>Сонячні панелі - Trina Solar 56шт. 270Вт (Китай) та гарантією на 25 років. Розміщені на оригінальній монтажній конструкції на двох дахах.</p>
+				<p>Працює система разом з інвертором фірми QX3 (Німеччина). Гарантія на інвертор 5 років.</p>
+				<p>Орієнтований дохід від СЕС - 2000 Євро щороку.</p>
+			</div>
+		</div> -->
+		<!-- Object 5 -->
+		<!-- <div class="ourWork-gallery-item">
+			<div class="ourWork-gallery-item-image">
+				<div id="slider5" class="sliderOuter">
+					<div class="spinner">
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+					</div>
+				</div>
+			</div>
+			<div class="ourWork-gallery-item-caption">
+				<h4>Сонячна електростанція потужністю 16,7кВт. Підключена до "зеленого тарифу"</h4>
+				<p>Місце: Івано-Франківська область.</p>
+				<p>Сонячні панелі - SHARP 62шт, 270Вт (Німеччина). Гарантія на  25 років. Панелі змонтовано на оригінальній монтажній конструкції на двох дахах.</p>
+				<p>Система працює разом з інвертором фірми QX3 (Німеччина). Гарантія на інвертор 5 років.</p>
+			</div>
+		</div> -->
+		<!-- Object 4 -->
+		<!-- <div class="ourWork-gallery-item">
+			<div class="ourWork-gallery-item-image">
+				<div id="slider4" class="sliderOuter">
+					<div class="spinner">
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+					</div>
+				</div>
+			</div>
+			<div class="ourWork-gallery-item-caption">
+				<h4>Сонячна електростанція потужністю 16,7кВт. Підключена до "зеленого тарифу"</h4>
+				<p>Місце: Івано-Франківська область.</p>
+				<p>Сонячні панелі - SHARP 62шт. 270Вт (Німеччина), гарантія 25 років. Розміщені на оригінальній монтажній конструкції  на двох дахах.</p>
+				<p>Працює система разом з інвертором фірми QX3 (Німеччина). Гарантія на інвертор 5 років.</p>
+			</div>
+		</div> -->
+		<!-- Object 3 -->
+		<!-- <div class="ourWork-gallery-item">
+			<div class="ourWork-gallery-item-image">
+				<div id="slider3" class="sliderOuter">
+					<div class="spinner">
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+					</div>
+				</div>
+			</div>
+			<div class="ourWork-gallery-item-caption">
+				<h4>Сонячна електростанція потужністю 17,7кВт. Підключена до "зеленого тарифу"</h4>
+				<p>Місце: Івано-Франківська область.</p>
+				<p>Сонячні панелі - Aleo Solar 59шт. 260Вт (Німеччина). Преміальна серія з рамою на 5см та гарантією 25 років.
+				Панелі розміщені на оригінальній монтажній конструкції для бітумної черепиці та працюють разом з двома інверторами фірми QX3 (Німеччина).</p>
+				<p>Гарантія на інвертори 5 років. Окупність проекту 5-6 років.</p>
+			</div>
+		</div> -->
+		<!-- Object 2 -->
+		<!-- <div class="ourWork-gallery-item">
+			<div class="ourWork-gallery-item-image">
+				<div id="slider2" class="sliderOuter">
+					<div class="spinner">
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+					</div>
+				</div>
+			</div>
+			<div class="ourWork-gallery-item-caption">
+				<h4>Сонячна електростанція на 7,28кВт. Підключена до "зеленого тарифу"</h4>
+				<p>Місце: Івано-Франківська область.</p>
+				<p>Сонячні панелі - SHARP 260 (Німеччина), розміщені на оригінальній монтажній конструкції та працюють разом з інвертором фірми QX3 (Німеччина).</p>
+			</div>
+		</div> -->
+		<!-- Object 1 -->
+		<!-- <div class="ourWork-gallery-item">
+			<div class="ourWork-gallery-item-image">
+				<div id="slider1" class="sliderOuter">
+					<div class="spinner">
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+						<div class="spinner-point"></div>
+					</div>
+				</div>
+			</div>
+			<div class="ourWork-gallery-item-caption">
+				<h4>Сонячна електростанція потужністю 7,8кВт. Підключена до "зеленого тарифу"</h4>
+				<p>Місце: Івано-Франківська область.</p>
+				<p>Сонячні панелі - SHARP 260 (Німеччина), розміщені на оригінальній монтажній конструкції та працюють разом з інвертором фірми SMA (Німеччина).</p>
+			</div>
+		</div>		
+	</div> -->
+	
+</section>

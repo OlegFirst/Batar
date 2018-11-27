@@ -1,0 +1,49 @@
+<section id="goodsComparing" ng-controller="comparingController">
+
+	<div class="goodsComparing-inner screenWidth">
+		<h2 class="pageTitle">Товар для порівняння</h2>
+		
+		<h3 class="goodsComparing-category" ng-show="comparingCounter>0">Категорія: {{comparingView.category}}</h3>
+		
+		<div class="screenWidth container well text-center" ng-if="comparingView.array.length==0" style="margin: 50px auto;">
+			<h3>Товар для порівняння відсутній</h3>
+		</div>
+		
+		<!-- Goods list -->
+		<div class="comparingList-outer">
+			<div class="comparingList">
+			
+				<!-- Pattern stub -->
+				<div id="comparingPatternStub" class="comparingList-item"></div>
+				
+				<!-- Pattern -->
+				<div id="comparingPattern" class="comparingList-item">
+					<div class="comparingList-item-image"></div>
+					<div class="comparingList-item-obj" ng-repeat="element in comparingView.array[0]" ng-hide="!element.isVisible">
+						{{element.translate}}
+						<span ng-hide="element.isDimensionEmpty">,</span>
+						{{element.dimension}}
+					</div>
+				</div>
+				
+				<!-- Comparing goods -->
+				<div class="comparingList-item" ng-repeat="elements in comparingView.array">
+					<span class="comparingList-remove" ng-click="removeItem($index)">&times;</span>
+					<div class="comparingList-item-image">
+						<img src="{{comparingView.imageArray[$index]}}" alt="Image">
+					</div>
+					<div class="comparingList-item-obj" ng-repeat="element in elements" ng-hide="!element.isVisible">
+						{{element.value}}
+					</div>
+				</div>
+				
+			</div>
+			
+			<!-- Buttons -->
+			<div class="basket-footer-buttons">
+				<p class="buttonEmpty" ng-click="globalController_back()">Назад</p>
+			</div>
+		</div>
+	</div>
+
+</section>

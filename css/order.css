@@ -1,0 +1,109 @@
+#order{
+	background: url(../images/order.jpg) no-repeat center fixed;
+	background-size: cover;	
+	margin-top: 105px;
+	margin-bottom: -20px;
+}
+.order{
+	position: relative;
+	padding: 90px 0px;
+	padding-bottom: 100px;
+	z-index: 1;
+}
+
+.order-title{
+	color: white;
+	text-align: center;
+	font-size: 290%;
+}
+
+.order-form{
+	background-color: rgba(255,255,255,0.5);
+	width: 100%;
+	min-width: 290px;
+	max-width: 350px;
+	overflow: auto;
+	margin: 20px auto;
+	padding: 10px;
+}
+
+/*Input fields*/
+.order-form input{
+	border: none;
+	width: 100%;
+	margin: 20px 0px;
+}
+
+/*Location*/
+.order-location>p{
+	font-weight: bold;
+}
+
+/*Order basket*/
+#orderBasket{
+	border: 1px solid;
+	position: relative;
+	top: 0px;
+}
+
+/*Remark*/
+#remark{
+	width: 100%;
+	margin: 20px 0px;
+}
+
+/*Order basket*/
+.order-form-basket{
+	color: #9bba3b;
+	cursor: pointer;
+}
+#orderBasket{
+	position: relative;
+	width: 10px !important;
+	top: 2px;
+	margin-right: 10px;
+}
+
+/*Order footer*/
+.order-form-footer{
+	display: flex;
+	display: -webkit-flex;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+	-webkit-align-items: center;
+	align-items: center;
+}
+#orderBack{
+	color: #9ab93d;
+}
+#orderBack:hover{
+	background-color: #ffffff;
+	color: #9ab93d;
+}
+#orderSubmit{
+	background-color: #ffffff;
+	color: #9ab93d;
+	border: 1px solid #9ab93d;
+	width: 205px;
+	padding: 10px 10px;
+}
+#orderSubmit:hover{
+	background-color: #9ab93d;
+	color: #ffffff;
+}
+
+.order-filter{
+	position: fixed;
+	background-color: rgba(0,0,255,0.3);
+	width: 100%;
+	height: 100vh;
+	left: 0px;
+	top: 0px;
+	z-index: 0;
+}
+
+@media only screen and (max-width: 768px){
+	
+}

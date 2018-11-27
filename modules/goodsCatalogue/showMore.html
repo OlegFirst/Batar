@@ -1,0 +1,93 @@
+<section id="showMore" ng-controller="showMoreController">
+
+	<!-- Goods catalogue menu -->
+	<div class="catalogue-menu-line">
+		<div class="catalogue-menu screenWidth">
+			<div class="nav" ng-click="catalogueNav()">
+				<div class="nav-line"></div><div class="nav-line"></div><div class="nav-line"></div>
+			</div>
+			<ul>
+				<li>
+					<a href="" class="ng-class:{'catalogue-menu-line-item-selected': goodsShow.type==1}" ng-click="catalogueMenuItem(1)">Готові електростанції</a>
+				</li>
+				<li>
+					<a href="" class="ng-class:{'catalogue-menu-line-item-selected': goodsShow.type==2}" ng-click="catalogueMenuItem(2)">Сонячні панелі</a>
+				</li>
+				<li>
+					<a href="" class="ng-class:{'catalogue-menu-line-item-selected': goodsShow.type==3}" ng-click="catalogueMenuItem(3)">Інвертори</a>
+				</li>
+				<li>
+					<a href="" class="ng-class:{'catalogue-menu-line-item-selected': goodsShow.type==4}" ng-click="catalogueMenuItem(4)">Монтажні конструкції</a>
+				</li>
+				<li>
+					<a href="" class="ng-class:{'catalogue-menu-line-item-selected': goodsShow.type==5}" ng-click="catalogueMenuItem(5)">Вітрові електростанції</a>
+				</li>
+				<li>
+					<a href="" class="ng-class:{'catalogue-menu-line-item-selected': goodsShow.type==6}" ng-click="catalogueMenuItem(6)">Додаткове обладнання</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	<!-- Content -->
+	<div class="showMore-content screenWidth">
+		<!-- Image block -->
+		<div class="showMore-content-images">
+			<div class="showMore-content-images-main">
+				<div class="showMore-content-images-main-inner">
+					<img src="{{selectedImage}}" width="auto" height="350px" alt="Goods image">
+				</div>
+			</div>
+			<div class="showMore-content-images-list">
+				<div ng-repeat="image in images">
+					<img src="{{image}}" width="100" height="auto" title="Zoom" alt="Goods image" ng-click="imageClicked($index)" onclick="imageSelect(this)">
+				</div>
+			</div>
+		</div>
+		<!-- Text block -->
+		<div class="showMore-content-information">
+			<div class="showMore-content-information-title">
+				<h3>{{obj.title}}</h3>
+				<h3><b>{{obj.getter('model').value}}</b></h3>
+				<hr>
+			</div>
+			<p>{{obj.getter('caption').value}}</p>
+			<table>
+				<tr>
+					<th colspan="2"><h4>Технічні характеристики</h4></th>
+				</tr>
+				<tr ng-repeat="item in obj.elements track by $index">
+					<td ng-if="item.isShow">{{item.translate}}</td>
+					<td ng-if="item.isShow">{{item.value}} {{item.dimension}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<!-- Content footer -->
+	<div class="showMore-footer screenWidth">
+		<hr>
+		<p class="showMore-footer-price">
+			<b>Ціна:</b> {{obj.getter('price1').value}} {{obj.getter('price1').dimension}}
+			<span ng-if="goods.type==2">або {{obj.getter('price2').value}} {{obj.getter('price2').dimension}}</span>
+		</p>
+		<a href="{{obj.getter('file').value}}" class="showMore-footer-infoFile" ng-if="infoFile" target="_blanck">Файл з характеристиками</a>
+		<div class="showMore-footer-buttons">
+			<a class="buttonEmpty" href="#goodsCatalogue">Назад</a>
+			<div class="basket buttonFill" ng-click="basketInsert($event)">
+				<span class="basket-message1">В кошик</span>
+				<span class="basket-message2">В кошикy</span>
+				<div class="basketImg-outer">
+					<div class="basketImg"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Ready solution for You -->
+	<div class="readySolution screenWidth">
+		<div class="readySolution-hover"></div>
+		<h2 class="readySolution-content"><b>ГОТОВІ РІШЕННЯ ДЛЯ ВАС</b></h2>
+		<h3 class="readySolution-content">СОНЯЧНІ ЕЛЕКТРОСТАНЦІЇ РІЗНОЇ ПОТУЖНОСТІ ТА ЦІНОВОЇ КАТЕГОРІЇ</h3>
+		<a class="readySolution-content buttonEmptyBlack" href="#">Детальніше</a>
+	</div>
+</section>

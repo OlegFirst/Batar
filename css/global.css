@@ -1,0 +1,308 @@
+/* Global CSS parameters for all css-files */
+
+.screenWidth{
+	width: 80%;
+	margin: 0 auto;
+}
+
+/* Navigation */
+.nav{
+	position: absolute;
+	flex-direction: column;
+	-webkit-flex-direction: column;
+	justify-content: space-between;
+	-webkit-justify-content: space-between;
+	align-items: center;
+	-webkit-align-items: center;
+	flex-wrap: wrap;
+	-webkit-flex-wrap: wrap;
+	border: 2px solid;
+	border-radius: 5px;
+	width: 30px;
+	height: 30px;
+	right: 7%;
+	top: 20px;
+	cursor: pointer;
+	display: none;
+}
+.nav-line{
+	border-bottom: 2px solid;
+	width: 80%;
+}
+
+/* Sprite */
+.phoneImg-outer{
+	width: 50px;
+	height: 50px;
+	overflow: hidden;
+}
+.phoneImg{
+	background: url(../images/sprite.png);
+	background-size: cover;
+	width: 100%;
+	height: 254%;
+}
+.locationImg-outer{
+	width: 33px;
+	height: 50px;
+	overflow: hidden;
+}
+.locationImg{
+	background: url(../images/sprite.png);
+	background-size: cover;
+	background-position: -59px 0px;
+	width: 33px;
+	height: 254%;
+}
+.facebookImg-outer{
+	width: 35px;
+	height: 35px;
+	overflow: hidden;
+}
+.facebookImg{
+	background: url(../images/sprite.png);
+	background-size: cover;
+	background-position: -71px 0px;
+	width: 48px;
+	height: 250%;
+}
+.basketImg-outer{
+	position: relative;
+	width: 40px;
+	height: 35px;
+	overflow: hidden;
+}
+.basketImg{
+	background: url(../images/sprite.png);
+	background-size: cover;
+	background-position: -114px 0px;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 241%;
+}
+.workingTime-outer{
+	width: 56px;
+	height: 50px;
+	overflow: hidden;
+}
+.workingTimeImg{
+	background: url(../images/sprite.png);
+	background-size: cover;
+	background-position: -230px 0px;
+	width: 50px;
+	height: 235%;
+}
+.mailImg-outer{
+	width: 50px;
+	height: 50px;
+	overflow: hidden;
+}
+.mailImg{
+	background: url(../images/sprite.png);
+	background-size: cover;
+	background-position: -340px -4px;
+	width: 79px;
+	height: 277%;
+}
+.compareImg-outer{
+	width: 30px;
+	height: 30px;
+	overflow: hidden;
+}
+.compareImg{
+	background: url(../images/sprite.png);
+	background-size: cover;
+	background-position: -220px -1px;
+	width: 100%;
+	height: 254%;
+}
+
+/* Pages title */
+.pageTitle{
+	background-color: rgb(154,185,61);
+	color: #FFFFFF;
+	width: 220px;
+	margin: 0;
+	padding: 10px;
+	text-align: center;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+/* Fonts */
+@font-face{
+	font-family: robotoLight;
+	src: url(../fonts/roboto/Roboto-Light.ttf);
+}
+
+/* Font size */
+h1{
+	font-size: 3.5em;
+	font-family: "Arial", Times, serif;
+}
+h2{
+	font-size: 2.125em;
+	font-family: "Arial", Times, serif;
+}
+h3{
+	font-size: 1.625em;
+}
+h4{
+	font-size: 1.375em;
+}
+h5{
+	font-size: 1.25em;
+}
+p{
+	font-size:1em;
+}
+
+/* Global responsive */
+@media only screen and (max-width:768px){
+	/* For XS */
+	.screenWidth{
+		width: 90%;
+	}
+}
+
+/* Effects */
+.shadow{
+	box-shadow: 0px 5px 20px 2px rgba(0,0,0,0.7);
+}
+.selected::after{
+	position: absolute;
+	background-color: #9AB93D;
+	color: #9AB93D;
+	content: "14";
+	left: 24px;
+	top: -10px;
+	animation-name: example;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+@keyframes example{
+	from {border-radius: 0%;}
+	to {border-radius: 50%;}
+}
+.basket.selected::after{
+	top: 0px;
+	left: 22px;
+}
+
+/*Buttons ------------------------------------*/
+/*Empty green*/
+.buttonEmpty{
+	color: #9AB93D;
+	border: 1px solid #9AB93D;
+	padding: 10px 50px;
+	float: left;
+	text-decoration: none !important;
+	font-weight: bold;
+	cursor: pointer;	
+}
+.buttonEmpty:hover{
+	background-color: #9AB93D;
+	color: #FFFFFF;
+}
+
+/*Empty black*/
+.buttonEmptyBlack{
+	color: black;
+	border: 1px solid black;
+	padding: 10px 50px;
+	text-decoration: none !important;
+	font-weight: bold;
+}
+.buttonEmptyBlack:hover{
+	background-color: grey;
+	border: grey;
+	color: #FFFFFF;
+}
+
+.buttonFill{
+	background-color: #9AB93D;
+	color: #FFFFFF;
+	border: 1px solid #9AB93D;
+	padding: 10px 50px;
+	text-decoration: none !important;
+	font-weight: bold;
+}
+.buttonFill:hover{
+	background-color: #FFFFFF;
+	color: #9AB93D;
+	border: 1px solid #9AB93D;
+}
+
+/*Type 1*/
+.btn_type1 {
+	color: blue;
+	background-color: white;
+	border: 1px solid blue;
+	border-radius: 4px;
+	padding: 5px 15px 4px 15px;
+}
+.btn_type1:hover {
+	color: white;
+	background-color: blue;
+}
+
+/*Spinner*/
+.spinner{
+	position: absolute;
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	margin: auto;
+	animation-name: rotating;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+.spinner-point{
+	position: absolute;
+	background-color: #141463b3;
+	border-radius: 50%;
+	width: 10px;
+	height: 10px;
+	left: 20px;
+	top: -10px;
+}
+.spinner-point:nth-child(2){
+	left: 42px;
+	top: -1px;	
+}
+.spinner-point:nth-child(3){
+	left: 50px;
+	top: 20px;	
+}
+.spinner-point:nth-child(4){
+	left: 43px;
+	top: 40px;
+}
+.spinner-point:nth-child(5){
+	left: 20px;
+	top: 50px;	
+}
+.spinner-point:nth-child(6){
+	left: 0px;
+	top: 42px;
+}
+.spinner-point:nth-child(7){
+	left: -10px;
+	top: 20px;
+}
+.spinner-point:nth-child(8){
+	left: -1px;
+	top: -1px;
+}
+@keyframes rotating{
+	from {transform: rotate(0deg);}
+	to {transform: rotate(360deg);}
+}
+.spinner-hide{
+	display: none;
+}
