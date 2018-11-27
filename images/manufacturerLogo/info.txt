@@ -1,3 +1,0 @@
-Image size 270 X 170 px
-
-modules/firmSlider
